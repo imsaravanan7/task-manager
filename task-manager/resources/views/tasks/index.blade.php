@@ -4,11 +4,11 @@
     <div class="task-cont">
         <div class="cntnt-ttl">Task List</div>
         <div>
-            <a href="{{ url('tasks/create') }}" class="btn btn-primary">Create New Task</a>
+            <a href="{{ url('tasks/create') }}">Create New Task</a>
         </div>
         
         @if($tasks->isEmpty())
-            <div class="alert alert-warning" role="alert">
+            <div>
                 No tasks available.
             </div>
         @else
@@ -32,12 +32,12 @@
                             <td>{{ \Carbon\Carbon::parse($task->due_date)->format('d M Y') }}</td>
                             <td>{{ $task->status }}</td>
                             <td>
-                                <a href="{{ url('tasks/'.$task->id) }}" class="btn btn-info btn-sm">View</a>
-                                <a href="{{ url('tasks/'.$task->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ url('tasks/'.$task->id) }}">View</a>
+                                <a href="{{ url('tasks/'.$task->id.'/edit') }}">Edit</a>
                                 
                                 <form action="{{ url('tasks/'.$task->id.'/delete') }}" method="POST" style="display:inline-block;">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                             </td>
                         </tr>

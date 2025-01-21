@@ -21,6 +21,6 @@
                 <td>{{ $task->status }}</td>
             </tr>
         </table>
-        <a href="{{ url('tasks') }}" class="btn btn-secondary">Back to Task List</a>
+        <a href="{{ url('tasks') }}">Back to Task List</a>
     </div>
 @endsection
