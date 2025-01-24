@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('due_date')->nullable();
@@ -20,6 +21,7 @@ return new class extends Migration
                   ->default(0)
                   ->comment('0: Pending, 1: In Progress, 2: Completed');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

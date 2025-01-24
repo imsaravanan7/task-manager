@@ -25,6 +25,7 @@
                     <option value="2" {{ $task->status == '2' ? 'selected' : '' }}>Completed</option>
                 </select>
             </div>
+            @include('form.form-error')
             <button type="submit">Update Task</button>
         </form>
     </div>
